@@ -1,4 +1,6 @@
-class BankAccount
+using System;
+
+public class BankAccount
 {
     public string AccountNumber { get; }
     public string OwnerName { get; set; }
@@ -16,7 +18,6 @@ class BankAccount
         if (amount > 0)
         {
             Balance += amount;
-            Console.WriteLine($"Deposited {amount:C} into account {AccountNumber}. New balance: {Balance:C}");
         }
         else
         {
@@ -29,7 +30,6 @@ class BankAccount
         if (amount > 0 && Balance >= amount)
         {
             Balance -= amount;
-            Console.WriteLine($"Withdrawn {amount:C} from account {AccountNumber}. New balance: {Balance:C}");
             return true;
         }
         else
@@ -44,7 +44,6 @@ class BankAccount
         if (fromAccount.Withdraw(amount))
         {
             toAccount.Deposit(amount);
-            Console.WriteLine($"Transferred {amount:C} from account {fromAccount.AccountNumber} to account {toAccount.AccountNumber}.");
         }
         else
         {
